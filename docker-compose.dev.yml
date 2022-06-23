@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+
+  client:
+    container_name: client
+    restart: always
+    env_file: ./.docker/.env
+    ports:
+      - "8080:8080"
+    volumes:
+      - /workspace/node_modules
+      - /workspace/.next
+      - ./:/workspace
+    build:
+      context: .
+      dockerfile: ./.docker/dev.Dockerfile
+    command: ["yarn","dev"]

@@ -1,0 +1,13 @@
+{
+  "dockerComposeFile": "../docker-compose.dev.yml",
+  "service": "client",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "streetsidesoftware.code-spell-checker",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "oderwat.indent-rainbow",
+    "dbaeumer.vscode-eslint",
+    "wix.vscode-import-cost"
+  ]
+}
