@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Dndkit from "~/views/DndKit/DndKit"
 
-const codeUrl = "https://github.com/taishinaritomi/toy-box/blob/main/src/views/DndKit/DndKit.tsx";
+const codeUrl = "https://github.com/taishinaritomi/toys-box/blob/main/src/views/DndKit/DndKit.tsx";
 
 const dndkit = () => {
   return (
