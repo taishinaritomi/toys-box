@@ -37,7 +37,7 @@ const initialFruits:Fruits[] = [
     id:'6',
     name: "Avocado",
   },
-
+  
 ]
 
 const measuringConfig: MeasuringConfiguration = {
@@ -81,14 +81,14 @@ const Dndkit = () => {
   const next = (id: string) => {
     setFruits((fruits) => {
       const index = fruits.findIndex((fruit) => fruit.id === id);
-      return arrayMove(fruits, index, index - 1);
+      return index === 0 ? fruits : arrayMove(fruits, index, index - 1);
     });
   };
 
   const prev = (id: string) => {
     setFruits((fruits) => {
       const index = fruits.findIndex((fruit) => fruit.id === id);
-      return arrayMove(fruits, index, index + 1);
+      return index === fruits.length -1 ? fruits : arrayMove(fruits, index, index + 1);
     });
   };
 
