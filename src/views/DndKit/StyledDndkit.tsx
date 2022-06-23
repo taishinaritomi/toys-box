@@ -46,7 +46,7 @@ const measuringConfig: MeasuringConfiguration = {
   },
 };
 
-const Dndkit = () => {
+const StyledDndkit = () => {
   const [fruits,setFruits] = useState(initialFruits);
   const [activeId,setActiveId] = useState<string | null>(null);
 
@@ -93,56 +93,73 @@ const Dndkit = () => {
   };
 
   return (
-    <DndContext
-      sensors={sensors}
-      onDragStart={dragStart}
-      onDragEnd={dragEnd}
-      onDragCancel={dragCancel}
-      measuring={measuringConfig}
-    >
-      <DragOverlay>
-        {activeDrag && (
-          <p>{activeDrag.name}</p>
-        )}
-      </DragOverlay>
-        <SortableContext items={fruits} strategy={verticalListSortingStrategy}>
-          {fruits.map((fruit) => (
-            <Sortable
-              key={fruit.id}
-              handle={false}
-              className={activeId === fruit.id ? 'opacity-25' : ''}
-              sortableArguments={{
-                id:fruit.id,
-                attributes:{
-                  tabIndex:-1
-                }
-              }}
-            >
-              <div className="flex justify-between items-center w-32">
-                <p>{fruit.name}</p>
-
-                <div className="flex items-center">
-                  <button onClick={() => next(fruit.id)}>
-                    <IoCaretUp />
-                  </button>
-                  <button onClick={() => prev(fruit.id)}>
-                    <IoCaretDown />
-                  </button>
-                  <SortableHandle sortableArguments={{
+    <>
+      <DndContext
+        sensors={sensors}
+        onDragStart={dragStart}
+        onDragEnd={dragEnd}
+        onDragCancel={dragCancel}
+        measuring={measuringConfig}
+      >
+        <DragOverlay>
+          {activeDrag && (
+            <div className="flex justify-between items-center p-4 bg-slate-100 rounded-md border border-purple-400">
+              <p>{activeDrag.name}</p>
+              <div className="p-1 bg-slate-200 rounded-md">
+                <IoEllipsisVertical />
+              </div>
+            </div>
+          )}
+        </DragOverlay>
+          <SortableContext items={fruits} strategy={verticalListSortingStrategy}>
+            <div className="flex flex-col gap-2 p-8 w-96">
+              {fruits.map((fruit) => (
+                <Sortable
+                  key={fruit.id}
+                  handle={false}
+                  className={activeId === fruit.id ? 'opacity-25' : ''}
+                  sortableArguments={{
                     id:fruit.id,
                     attributes:{
                       tabIndex:-1
                     }
-                  }}>
-                      <IoEllipsisVertical />
-                  </SortableHandle>
-                </div>
-              </div>
-            </Sortable>
-          ))}
-        </SortableContext>
-    </DndContext>
+                  }}
+                >
+                  <div className="flex justify-between items-center p-4 bg-slate-100 rounded-md border border-slate-200">
+                    <p>{fruit.name}</p>
+
+                    <div className="flex gap-2 items-center">
+                      <button
+                        className="p-1 bg-slate-200 rounded-md"
+                        onClick={() => next(fruit.id)}
+                      >
+                        <IoCaretUp />
+                      </button>
+                      <button
+                        className="p-1 bg-slate-200 rounded-md"
+                        onClick={() => prev(fruit.id)}
+                      >
+                        <IoCaretDown />
+                      </button>
+                      <SortableHandle sortableArguments={{
+                        id:fruit.id,
+                        attributes:{
+                          tabIndex:-1
+                        }
+                      }}>
+                        <div className="p-1 bg-slate-200 rounded-md">
+                          <IoEllipsisVertical />
+                        </div>
+                      </SortableHandle>
+                    </div>
+                  </div>
+                </Sortable>
+              ))}
+            </div>
+          </SortableContext>
+      </DndContext>
+    </>
   )
 }
 
-export default Dndkit;
+export default StyledDndkit;

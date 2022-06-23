@@ -1,5 +1,5 @@
 import Head from "next/head"
-import Dndkit from "~/views/DndKit/DndKit"
+import StyledDndkit from "~/views/DndKit/StyledDndkit";
 
 const dndkit = () => {
   return (
@@ -7,7 +7,7 @@ const dndkit = () => {
       <Head>
         <title>Dnd-Kit Example / ToyBox</title>
       </Head>
-      <Dndkit />
+      <StyledDndkit />
     </>
   )
 }
