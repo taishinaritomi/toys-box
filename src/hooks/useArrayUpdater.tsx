@@ -1,5 +1,5 @@
 import type { Dispatch} from 'react';
-import { useState} from 'react';
+// import { useState} from 'react';
 import { arrayMove } from '~/libs/array';
 
 type Setter<T> = Dispatch<((prevState: T) => T)>;
@@ -66,10 +66,10 @@ const useObjectArrayUpdater = <
 
 export default useObjectArrayUpdater;
 
-const List = () => {
+// const List = () => {
   // Success Type
-  const [,setList] = useState<({name:string;id:number})[]>([]);
-  const { remove } = useObjectArrayUpdater(setList);
+  // const [,setList] = useState<({name:string;id:number})[]>([]);
+  // const { remove } = useObjectArrayUpdater(setList);
 
   // const [,setList2] = useState<({id:string})[]>();
   // const {remove:remove2} = useObjectArrayUpdater(setList2,"id");
@@ -81,7 +81,7 @@ const List = () => {
   // const [,setList3] = useState<({id:string})[] | string>([]);
   // const {remove:remove3} = useObjectArrayUpdater(setList3,"id");
 
-  return (
-    <></>
-  )
-}
+//   return (
+//     <></>
+//   )
+// }
