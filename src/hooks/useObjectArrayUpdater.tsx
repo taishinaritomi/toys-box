@@ -1,4 +1,4 @@
-import type { Dispatch} from 'react';
+import type { Dispatch } from 'react';
 // import { useState} from 'react';
 import { arrayMove } from '~/libs/array';
 
@@ -9,19 +9,19 @@ const useObjectArrayUpdater = <
   K extends keyof T = 'id'
 >(
   setter: Setter<T[]> | Setter<T[] | undefined> | Setter<T[] | null>,
-  key:K = 'id' as K,
+  key: K = 'id' as K,
 ) => {
 
   const add = (addValue: T, location: 'start' | 'end' = 'start') => {
     setter((array) => {
-      if(!Array.isArray(array)) return [addValue];
+      if (!Array.isArray(array)) return [addValue];
       return location === 'start' ? [addValue, ...array] : [...array, addValue];
     });
   };
 
   const update = (updateKey: T[K], updateValue: Partial<T>) => {
     setter((array) => {
-      if(!Array.isArray(array)) return [];
+      if (!Array.isArray(array)) return [];
       return array.map((value) =>
         value[key] === updateKey ? { ...value, ...updateValue } : value,
       );
@@ -30,13 +30,13 @@ const useObjectArrayUpdater = <
 
   const remove = (removeKey: T[K]) => {
     setter((array) => {
-      if(!Array.isArray(array)) return [];
+      if (!Array.isArray(array)) return [];
       return array.filter((value) => value[key] !== removeKey);
     });
   };
   const move = (oldKey: T[K], newKey: T[K]) => {
     setter((array) => {
-      if(!Array.isArray(array)) return [];
+      if (!Array.isArray(array)) return [];
       const oldIndex = array.findIndex((value) => value[key] === oldKey);
       const newIndex = array.findIndex((value) => value[key] === newKey);
       return arrayMove(array, oldIndex, newIndex);
@@ -45,7 +45,7 @@ const useObjectArrayUpdater = <
 
   const nextMove = (nextMoveKey: T[K]) => {
     setter((array) => {
-      if(!Array.isArray(array)) return [];
+      if (!Array.isArray(array)) return [];
       const index = array.findIndex((value) => value[key] === nextMoveKey);
       return index === 0 ? array : arrayMove(array, index, index - 1);
     });
@@ -53,7 +53,7 @@ const useObjectArrayUpdater = <
 
   const prevMove = (prevMoveKey: T[K]) => {
     setter((array) => {
-      if(!Array.isArray(array)) return [];
+      if (!Array.isArray(array)) return [];
       const index = array.findIndex((value) => value[key] === prevMoveKey);
       return index === array.length - 1
         ? array

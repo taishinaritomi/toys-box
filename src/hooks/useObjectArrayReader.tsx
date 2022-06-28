@@ -1,12 +1,11 @@
 import { useCallback } from "react";
 
-const useArrayReader = <
+const useObjectArrayReader = <
   T extends Record<string | number | symbol, unknown>,
-  N = never,
-  K extends keyof T = never
+  K extends keyof T = 'id'
 >(
-  array: T[] | N,
-  key:K,
+  array: T[] | (T[] | undefined) | (T[] | null),
+  key: K = 'id' as K,
 ) => {
   const findByKey = useCallback((findKey: T[K]) => {
     if(!Array.isArray(array)) return null;
@@ -21,4 +20,4 @@ const useArrayReader = <
   return { findByKey, findIndex }
 }
 
-export default useArrayReader;
+export default useObjectArrayReader;
