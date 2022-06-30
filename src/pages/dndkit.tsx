@@ -7,7 +7,7 @@ const dndkit = () => {
   return (
     <>
       <Head>
-        <title>Dnd-Kit Example / ToyBox</title>
+        <title>Dnd-Kit Example / ToysBox</title>
       </Head>
       <Dndkit />
       <div className="mt-4">

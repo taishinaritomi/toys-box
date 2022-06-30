@@ -7,7 +7,7 @@ const todo = () => {
   return (
     <RecoilRoot>
       <Head>
-        <title>Todo / ToyBox</title>
+        <title>Todo / ToysBox</title>
       </Head>
       <Todo />
     </RecoilRoot>

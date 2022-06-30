@@ -5,7 +5,7 @@ const dndkit = () => {
   return (
     <>
       <Head>
-        <title>Dnd-Kit Example / ToyBox</title>
+        <title>Dnd-Kit Example / ToysBox</title>
       </Head>
       <StyledDndkit />
     </>
