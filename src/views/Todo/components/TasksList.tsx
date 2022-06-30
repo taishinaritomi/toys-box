@@ -11,7 +11,7 @@ import Sortable from "~/components/Dndkit/Sortable";
 
 const pointerSensorOptions: SensorOptions = {
   activationConstraint: {
-    delay: 150,
+    delay: 250,
     tolerance: 5,
   },
 };
