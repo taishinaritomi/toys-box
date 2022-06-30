@@ -3,6 +3,8 @@ import { useRecoilState } from 'recoil';
 import { tasksState, type TaskType } from '../states/tasksState';
 import useObjectArrayUpdater from '~/hooks/useObjectArrayUpdater';
 
+type UpdateTask = Partial<Pick<TaskType, 'text' | 'checked'>>;
+
 
 const useTasks = () => {
   const [tasks, setTasks] = useRecoilState(tasksState);
@@ -13,8 +15,11 @@ const useTasks = () => {
     taskAdd({ id: nanoid(), createAt: now, updateAt: now,checked:false, ...addTask });
   };
 
-  const update = (id: string, updateTask: Partial<Pick<TaskType, 'text' | 'checked'>>) => {
-    taskUpdate(id,{ updateAt: new Date(),...updateTask });
+  const update = (id: string, updateTask: UpdateTask | (UpdateTask | ((prevValue: UpdateTask) => UpdateTask))) => {
+    taskUpdate(id,(task) => {
+      const _updateTask = updateTask instanceof Function ? updateTask(task): updateTask;
+      return { updateAt: new Date(),..._updateTask };
+    });
   };
 
   const removeAll = () => {

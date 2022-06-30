@@ -19,12 +19,17 @@ const useObjectArrayUpdater = <
     });
   };
 
-  const update = (updateKey: T[K], updateValue: Partial<T>) => {
+  const update = (updateKey: T[K], updateValue: Partial<T> | ((prevValue: T) => Partial<T>)) => {
     setter((array) => {
       if (!Array.isArray(array)) return [];
-      return array.map((value) =>
-        value[key] === updateKey ? { ...value, ...updateValue } : value,
-      );
+      return array.map((value) => {
+        if(value[key] === updateKey) {
+          const _updateValue = updateValue instanceof Function ? updateValue(value) : updateValue;
+          return  { ...value, ..._updateValue };
+        } else {
+          return value;
+        }
+      });
     });
   };
 
