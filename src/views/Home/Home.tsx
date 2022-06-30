@@ -8,7 +8,10 @@ const Home = () => {
           Todo App
         </a>
       </Link>
-      <p className="text-lg ">Coming Soon...</p>
+      <p className="text-lg text-slate-400">Coming Soon...</p>
+      <a className="mt-8 text-lg underline" href="https://github.com/taishinaritomi/toys-box">
+        Repository
+      </a>
     </div>
   )
 }
