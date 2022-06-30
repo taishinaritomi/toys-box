@@ -3,7 +3,7 @@ import { MeasuringStrategy} from "@dnd-kit/core";
 import { DragOverlay} from "@dnd-kit/core";
 import { MouseSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { DndContext } from "@dnd-kit/core";
-import { SortableContext } from "@dnd-kit/sortable";
+import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { useState, useEffect, useMemo } from "react";
 import useTasks from "../hooks/useTasks";
 import TaskContent from "./TaskContent";
@@ -57,13 +57,14 @@ const TasksList = () => {
         >
           <DragOverlay>
             {activeTask && (
-              <div className="shadow-xl">
+              <div className="shadow-xl cursor-grabbing">
                 <TaskContent task={activeTask} />
               </div>
             )}
           </DragOverlay>
           <SortableContext
             items={tasks.map((task) => task.id)}
+            strategy={verticalListSortingStrategy}
           >
             {tasks.map((task) => (
               <Sortable
