@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import relativeTime from "dayjs/plugin/relativeTime"
 import type { FC} from "react";
 import { Fragment } from "react"
-import { IoRefresh, IoBug, IoTrash } from "react-icons/io5";
+import { IoRefresh, IoBug, IoTrash, IoCheckmark } from "react-icons/io5";
 import TextareaAutoSize from 'react-textarea-autosize';
 import useTasks from "../hooks/useTasks";
 import type { TaskType } from "../states/tasksState";
@@ -15,7 +15,7 @@ dayjs.locale('ja');
 const TaskContent:FC<{task:TaskType}> = ({task}) => {
   const { update, remove } = useTasks();
   return (
-    <div className="flex gap-4 items-center p-4 bg-slate-100 rounded-md border">
+    <div className='flex gap-4 items-center p-4 bg-slate-100 rounded-md border'>
       <TextareaAutoSize
         className="overflow-hidden p-2 w-full bg-slate-100 focus:outline-none resize-none"
         onChange={(e) =>
@@ -28,7 +28,7 @@ const TaskContent:FC<{task:TaskType}> = ({task}) => {
           remove(task.id)
         }
         defaultValue={task.text}
-      />
+        />
       <TaskMenu task={task} />
     </div>
   )
@@ -36,12 +36,12 @@ const TaskContent:FC<{task:TaskType}> = ({task}) => {
 export default TaskContent;
 
 const TaskMenu:FC<{task:TaskType}> = ({task}) => {
-  const { remove } = useTasks();
+  const { remove,update } = useTasks();
   return (
     <Popover className='relative'>
       {({ open }) => (
         <>
-          <Popover.Button className='p-2 rounded-md '><IoBug /></Popover.Button>
+          <Popover.Button className='p-2 rounded-md'><IoBug /></Popover.Button>
           <Transition
             show={open}
             as={Fragment}
@@ -54,6 +54,13 @@ const TaskMenu:FC<{task:TaskType}> = ({task}) => {
           >
             <Popover.Panel static className='absolute top-0 right-full -translate-x-3'>
                 <div className="p-2 w-52 bg-slate-100 rounded-md border border-slate-200 shadow-md s:w-48">
+                  <button
+                    onClick={() => update(task.id,({checked}) => ({checked:!checked}))}
+                    className={`flex gap-2 items-center py-2 px-3 w-full  rounded-md transition-colors ${task.checked ? 'text-green-400 hover:text-green-500 bg-green-100 font-bold': 'text-slate-600'}`}
+                  >
+                    <IoCheckmark />
+                    <p>{task.checked ? '完了':'未完了'}</p>
+                  </button>
                   <button
                     onClick={() => remove(task.id)}
                     className="flex gap-2 items-center py-2 px-3 w-full font-bold text-red-400 hover:text-red-500 hover:bg-red-100 rounded-md transition-colors"
