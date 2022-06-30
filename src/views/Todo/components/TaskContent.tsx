@@ -20,20 +20,6 @@ const TaskContent:FC<{task:TaskType}> = ({task}) => {
         }
         defaultValue={task.text}
       />
-      {/* <input
-        onChange={(e) =>
-          update(task.id, {
-            text: e.target.value,
-          })
-        }
-        onBlur={(e) =>
-          (!e.target.value || !e.target.value.match(/\S/g)) &&
-          remove(task.id)
-        }
-        defaultValue={task.text}
-      /> */}
-      {/* <p>create:{new Date(task.createAt).toLocaleString()}</p>
-      <p>update:{new Date(task.updateAt).toLocaleString()}</p> */}
       <button onClick={() => remove(task.id)}>remove</button>
     </div>
   )

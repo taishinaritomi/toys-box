@@ -6,7 +6,7 @@ import useObjectArrayUpdater from '~/hooks/useObjectArrayUpdater';
 
 const useTasks = () => {
   const [tasks, setTasks] = useRecoilState(tasksState);
-  const {add:taskAdd,update:taskUpdate,remove } = useObjectArrayUpdater(setTasks);
+  const {add:taskAdd,update:taskUpdate,remove, move } = useObjectArrayUpdater(setTasks);
 
   const add = (addTask: Pick<TaskType, 'text'>) => {
     const now =  new Date()
@@ -17,16 +17,24 @@ const useTasks = () => {
     taskUpdate(id,{ updateAt: new Date(),...updateTask });
   };
 
-  const removeAll = async () => {
+  const removeAll = () => {
     setTasks([]);
+  };
+
+  const findById = (id:string) => {
+    const task = tasks.find((task) => task.id === id) || null;
+    return task;
   };
 
   return {
     tasks,
+    setTasks,
     add,
+    move,
     update,
     remove,
     removeAll,
+    findById
   };
 };
 export default useTasks;
