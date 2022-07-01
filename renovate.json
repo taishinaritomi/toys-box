@@ -5,5 +5,4 @@
   "dependencyDashboard": false,
   "automerge": true,
   "branchConcurrentLimit": 0,
-  "baseBranches": ["dev"]
 }
