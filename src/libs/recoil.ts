@@ -12,7 +12,9 @@ const localStorageEffect = <T>(
           const jsonPerse = JSON.parse(savedValue || '[]');
           const valueParse = parser ? parser(jsonPerse) : jsonPerse;
           setSelf(valueParse);
-        } catch(e) { }
+        } catch (error) {
+          localStorage.removeItem(key);
+        }
       }
 
       onSet((newValue, _, isReset) => {

@@ -1,10 +1,10 @@
 import type { Dispatch } from 'react';
-// import { useState} from 'react';
 import { arrayMove } from '~/libs/array';
 
 type Setter<T> = Dispatch<((prevState: T) => T)>;
+export type PartialSetStateAction<S> = Partial<S> | ((prevState: S) => Partial<S>)
 
-const useObjectArrayUpdater = <
+const useObjectArrayMutators = <
   T extends Record<string, unknown>,
   K extends keyof T = 'id'
 >(
@@ -19,7 +19,7 @@ const useObjectArrayUpdater = <
     });
   };
 
-  const update = (updateKey: T[K], updateValue: Partial<T> | ((prevValue: T) => Partial<T>)) => {
+  const update = (updateKey: T[K], updateValue: PartialSetStateAction<T>) => {
     setter((array) => {
       if (!Array.isArray(array)) return [];
       return array.map((value) => {
@@ -39,6 +39,7 @@ const useObjectArrayUpdater = <
       return array.filter((value) => value[key] !== removeKey);
     });
   };
+
   const move = (oldKey: T[K], newKey: T[K]) => {
     setter((array) => {
       if (!Array.isArray(array)) return [];
@@ -69,24 +70,4 @@ const useObjectArrayUpdater = <
   return { add, update, remove, move, nextMove, prevMove };
 };
 
-export default useObjectArrayUpdater;
-
-// const List = () => {
-  // Success Type
-  // const [,setList] = useState<({name:string;id:number})[]>([]);
-  // const { remove } = useObjectArrayUpdater(setList);
-
-  // const [,setList2] = useState<({id:string})[]>();
-  // const {remove:remove2} = useObjectArrayUpdater(setList2,"id");
-
-  // const [,setList4] = useState<({id:string})[] | undefined>(undefined);
-  // const {remove:remove4} = useObjectArrayUpdater(setList4,"id");
-
-  //   // Error Type
-  // const [,setList3] = useState<({id:string})[] | string>([]);
-  // const {remove:remove3} = useObjectArrayUpdater(setList3,"id");
-
-//   return (
-//     <></>
-//   )
-// }
+export default useObjectArrayMutators;
