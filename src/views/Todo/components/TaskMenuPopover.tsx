@@ -14,7 +14,7 @@ const TaskMenu:FC<{task:TaskType}> = ({task}) => {
     <Popover className='relative'>
       {({ open }) => (
         <>
-          <Popover.Button className='p-2 rounded-md'>
+          <Popover.Button className='py-3 px-2 rounded-md'>
             <IoEllipsisVertical />
           </Popover.Button>
           <Transition

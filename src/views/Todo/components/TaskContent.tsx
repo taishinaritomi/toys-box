@@ -9,12 +9,13 @@ const TaskContent:FC<{task:TaskType}> = ({task}) => {
   const { updateTask, removeTask } = useTasksMutators();
 
   return (
-    <div className='flex gap-4 items-center p-4 bg-slate-100 rounded-md border'>
+    <div className='flex gap-4 p-4 bg-slate-100 rounded-md border'>
       <TextareaAutoSize
         className="overflow-hidden p-2 w-full bg-slate-100 focus:outline-none resize-none"
         onChange={(e) =>
           updateTask(task.id, {
             text: e.target.value,
+            updateAt: new Date()
           })
         }
         onBlur={(e) => {

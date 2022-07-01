@@ -16,8 +16,8 @@ const TaskForm = () => {
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleFormSubmit:SubmitHandler<TaskTextType> = (data) => {
-    addTask(data);
+  const handleFormSubmit:SubmitHandler<TaskTextType> = (task) => {
+    addTask(task);
     reset();
   }
 
