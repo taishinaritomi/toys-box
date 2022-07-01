@@ -17,7 +17,7 @@
     "@headlessui/react": "1.6.5",
     "@hookform/resolvers": "2.9.3",
     "dayjs": "1.11.3",
-    "nanoid": "3.3.4",
+    "nanoid": "4.0.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
