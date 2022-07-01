@@ -12,6 +12,7 @@ import { TaskTextSchema } from "../states/tasksState";
 const TaskForm = () => {
   const { addTask } = useTasksMutators();
   const [composing, setComposition] = useState(false);
+  const [focus, setFocus] = useState(false);
 
 
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -28,11 +29,16 @@ const TaskForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit,() => reset())} className=' mx-auto w-full max-w-lg'>
-      <div className="flex relative items-center bg-slate-100 rounded-md border border-slate-200">
+      <div className={`flex relative items-center bg-slate-100 rounded-md border-2 border-slate-200 ${focus ? 'border-purple-600' : ''}`}>
         <TextareaAutoSize
           onCompositionStart={() => setComposition(true)}
           onCompositionEnd={() => setComposition(false)}
           {...register('text')}
+          onFocus={() => setFocus(true)}
+          onBlur={(e) => {
+            register('text').onBlur(e)
+            setFocus(false)
+          }}
           onKeyDown={(e) => {
             if(e.shiftKey && e.code === 'Enter') {
               if(composing) return;
