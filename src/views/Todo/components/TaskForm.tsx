@@ -1,33 +1,44 @@
-import type { FormEventHandler} from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef} from "react";
 import { useState } from "react";
+import type { SubmitHandler} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { IoRocket } from "react-icons/io5";
 import TextareaAutoSize from 'react-textarea-autosize';
-import useTasks from "../hooks/useTasks";
+import type { TaskTextType} from "../states/tasksState";
+import { useTasksMutators } from "../states/tasksState";
+import { TaskTextSchema } from "../states/tasksState";
 
 const TaskForm = () => {
-  const { add } = useTasks();
-  const [inputTask, setInputTask] = useState('');
+  const { addTask } = useTasksMutators();
   const [composing, setComposition] = useState(false);
+  const [focus, setFocus] = useState(false);
+
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleFormSubmit:FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    e.currentTarget.reset();
-    if (!inputTask || !inputTask.match(/\S/g)) return;
-    add({ text: inputTask });
-    setInputTask('');
+  const handleFormSubmit:SubmitHandler<TaskTextType> = (task) => {
+    addTask(task);
+    reset();
   }
 
+  const { register, handleSubmit,reset } = useForm<TaskTextType>({
+    mode:'onSubmit',
+    resolver: zodResolver(TaskTextSchema),
+  });
 
   return (
-    <form onSubmit={handleFormSubmit} className=' mx-auto w-full max-w-lg'>
-      <div className="flex relative items-center bg-slate-100 rounded-md border border-slate-200">
+    <form onSubmit={handleSubmit(handleFormSubmit,() => reset())} className=' mx-auto w-full max-w-lg'>
+      <div className={`flex relative items-center bg-slate-100 rounded-md border-2 border-slate-200 ${focus ? 'border-purple-600' : ''}`}>
         <TextareaAutoSize
           onCompositionStart={() => setComposition(true)}
           onCompositionEnd={() => setComposition(false)}
-          onChange={(e) => setInputTask(e.currentTarget.value)}
+          {...register('text')}
+          onFocus={() => setFocus(true)}
+          onBlur={(e) => {
+            register('text').onBlur(e)
+            setFocus(false)
+          }}
           onKeyDown={(e) => {
             if(e.shiftKey && e.code === 'Enter') {
               if(composing) return;

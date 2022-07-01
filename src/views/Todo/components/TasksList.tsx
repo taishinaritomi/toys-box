@@ -5,7 +5,7 @@ import { MouseSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { DndContext } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { useState, useEffect, useMemo } from "react";
-import useTasks from "../hooks/useTasks";
+import { useTasksMutators, useTaskState } from "../states/tasksState";
 import TaskContent from "./TaskContent";
 import Sortable from "~/components/Dndkit/Sortable";
 
@@ -23,7 +23,9 @@ const measuringConfig: MeasuringConfiguration = {
 };
 
 const TasksList = () => {
-  const { tasks,move,findById } = useTasks();
+  const { moveTask } = useTasksMutators();
+  const { tasks, findById } = useTaskState();
+
   const[lording,setLording] = useState(true);
   useEffect(() => {setLording(false)},[]);
 
@@ -37,7 +39,7 @@ const TasksList = () => {
 
   const dragEnd = ({ active, over }: DragEndEvent) => {
     if (over && active.id !== over.id) {
-      move(active.id.toString(),over.id.toString())
+      moveTask(active.id.toString(),over.id.toString())
     }
     setActiveId(null);
   };
