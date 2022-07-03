@@ -1,14 +1,15 @@
-import type { AnimateLayoutChanges, UseSortableArguments } from '@dnd-kit/sortable';
+import type {
+  AnimateLayoutChanges,
+  UseSortableArguments,
+} from '@dnd-kit/sortable';
 import { useSortable, defaultAnimateLayoutChanges } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { ComponentProps, FC } from 'react';
 
 type Sortable = {
   handle?: boolean;
-  sortableArguments:UseSortableArguments
-} & ComponentProps<'div'>
-
-
+  sortableArguments: UseSortableArguments;
+} & ComponentProps<'div'>;
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) => {
   return args.isSorting || args.wasDragging
@@ -16,11 +17,15 @@ const animateLayoutChanges: AnimateLayoutChanges = (args) => {
     : true;
 };
 
-const Sortable: FC<Sortable> = ({sortableArguments,handle = true,...props}) => {
+const Sortable: FC<Sortable> = ({
+  sortableArguments,
+  handle = true,
+  ...props
+}) => {
   const { attributes, listeners, transform, transition, setNodeRef } =
     useSortable({
       animateLayoutChanges,
-      ...sortableArguments
+      ...sortableArguments,
     });
 
   const style = {

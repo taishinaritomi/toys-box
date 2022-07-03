@@ -13,5 +13,4 @@ const home: NextPage = () => {
   );
 };
 
-
 export default home;
