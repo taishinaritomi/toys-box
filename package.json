@@ -6,10 +6,11 @@
     "dev": "next dev -p $PORT",
     "build": "next build",
     "start": "next start -p $PORT",
-    "type:check": "tsc --noEmit",
-    "lint": "next lint",
-    "format": "prettier --write src",
-    "lint:fix": "eslint --fix src"
+    "check:type": "tsc --noEmit",
+    "check:lint": "next lint",
+    "check:format": "prettier src --check",
+    "fix:format": "prettier --write src",
+    "fix:lint": "eslint --fix src"
   },
   "dependencies": {
     "@dnd-kit/core": "6.0.5",
