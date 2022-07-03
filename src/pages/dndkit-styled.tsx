@@ -1,5 +1,5 @@
-import Head from "next/head"
-import StyledDndkit from "~/views/DndKit/StyledDndkit";
+import Head from 'next/head';
+import StyledDndkit from '~/views/DndKit/StyledDndkit';
 
 const dndkit = () => {
   return (
@@ -9,6 +9,6 @@ const dndkit = () => {
       </Head>
       <StyledDndkit />
     </>
-  )
-}
+  );
+};
 export default dndkit;

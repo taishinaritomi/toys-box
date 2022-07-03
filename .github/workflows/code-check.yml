@@ -1,11 +1,11 @@
-name: Type check
+name: Code check
 on:
   pull_request:
     branches:
       - main
   workflow_dispatch:
 jobs:
-  type-check:
+  code-check:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -14,8 +14,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          cache: npm
       - name: Install dependencies
         run : yarn install
       - name: Type check
-        run : yarn type:check
+        run : yarn check:type
+      - name: Lint check
+        run : yarn check:lint
+      - name: Format check
+        run : yarn check:format

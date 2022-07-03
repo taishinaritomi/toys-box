@@ -1,17 +1,18 @@
 import type { Dispatch } from 'react';
 import { arrayMove } from '~/libs/array';
 
-type Setter<T> = Dispatch<((prevState: T) => T)>;
-export type PartialSetStateAction<S> = Partial<S> | ((prevState: S) => Partial<S>)
+type Setter<T> = Dispatch<(prevState: T) => T>;
+export type PartialSetStateAction<S> =
+  | Partial<S>
+  | ((prevState: S) => Partial<S>);
 
 const useObjectArrayMutators = <
   T extends Record<string, unknown>,
-  K extends keyof T = 'id'
+  K extends keyof T = 'id',
 >(
   setter: Setter<T[]> | Setter<T[] | undefined> | Setter<T[] | null>,
   key: K = 'id' as K,
 ) => {
-
   const add = (addValue: T, location: 'start' | 'end' = 'start') => {
     setter((array) => {
       if (!Array.isArray(array)) return [addValue];
@@ -23,9 +24,10 @@ const useObjectArrayMutators = <
     setter((array) => {
       if (!Array.isArray(array)) return [];
       return array.map((value) => {
-        if(value[key] === updateKey) {
-          const _updateValue = updateValue instanceof Function ? updateValue(value) : updateValue;
-          return  { ...value, ..._updateValue };
+        if (value[key] === updateKey) {
+          const _updateValue =
+            updateValue instanceof Function ? updateValue(value) : updateValue;
+          return { ...value, ..._updateValue };
         } else {
           return value;
         }
