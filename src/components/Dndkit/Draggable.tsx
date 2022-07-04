@@ -3,12 +3,11 @@ import { useDraggable } from '@dnd-kit/core';
 import type { ComponentProps, FC } from 'react';
 
 type DraggableProps = {
-  draggableArguments: UseDraggableArguments;
+  draggableArgs: UseDraggableArguments;
 } & ComponentProps<'div'>;
 
-const Draggable: FC<DraggableProps> = ({ draggableArguments, ...props }) => {
-  const { attributes, listeners, setNodeRef } =
-    useDraggable(draggableArguments);
+const Draggable: FC<DraggableProps> = ({ draggableArgs, ...props }) => {
+  const { attributes, listeners, setNodeRef } = useDraggable(draggableArgs);
   return <div ref={setNodeRef} {...listeners} {...attributes} {...props} />;
 };
 

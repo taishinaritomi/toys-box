@@ -3,14 +3,11 @@ import { useSortable } from '@dnd-kit/sortable';
 import type { ComponentProps, FC } from 'react';
 
 type SortableHandle = {
-  sortableArguments: UseSortableArguments;
+  sortableArgs: UseSortableArguments;
 } & ComponentProps<'div'>;
 
-const SortableHandle: FC<SortableHandle> = ({
-  sortableArguments,
-  ...props
-}) => {
-  const { attributes, listeners } = useSortable(sortableArguments);
+const SortableHandle: FC<SortableHandle> = ({ sortableArgs, ...props }) => {
+  const { attributes, listeners } = useSortable(sortableArgs);
   return <div {...listeners} {...attributes} {...props} />;
 };
 
