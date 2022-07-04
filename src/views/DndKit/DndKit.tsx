@@ -118,9 +118,9 @@ const Dndkit = () => {
         {fruits.map((fruit) => (
           <Sortable
             key={fruit.id}
-            handle={false}
             className={activeId === fruit.id ? 'opacity-25' : ''}
-            sortableArgs={{
+            options={{
+              handle: false,
               id: fruit.id,
               attributes: {
                 tabIndex: -1,
@@ -138,7 +138,7 @@ const Dndkit = () => {
                   <IoCaretDown />
                 </button>
                 <SortableHandle
-                  sortableArgs={{
+                  options={{
                     id: fruit.id,
                     attributes: {
                       tabIndex: -1,

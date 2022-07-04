@@ -3,10 +3,10 @@ import { useDroppable } from '@dnd-kit/core';
 import type { ComponentProps, FC } from 'react';
 
 type DroppableProps = {
-  droppableArgs: UseDroppableArguments;
+  options: UseDroppableArguments;
 } & ComponentProps<'div'>;
 
-export const Droppable: FC<DroppableProps> = ({ droppableArgs, ...props }) => {
-  const { setNodeRef } = useDroppable(droppableArgs);
+export const Droppable: FC<DroppableProps> = ({ options, ...props }) => {
+  const { setNodeRef } = useDroppable(options);
   return <div ref={setNodeRef} {...props} />;
 };

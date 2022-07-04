@@ -85,7 +85,7 @@ const TasksList = () => {
               <Sortable
                 key={task.id}
                 className={activeId === task.id ? 'opacity-30' : ''}
-                sortableArgs={{
+                options={{
                   id: task.id,
                   attributes: {
                     tabIndex: -1,

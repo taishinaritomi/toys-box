@@ -7,8 +7,7 @@ import { CSS } from '@dnd-kit/utilities';
 import type { ComponentProps, FC } from 'react';
 
 type Sortable = {
-  handle?: boolean;
-  sortableArgs: UseSortableArguments;
+  options: UseSortableArguments & { handle?: boolean };
 } & ComponentProps<'div'>;
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) => {
@@ -17,11 +16,14 @@ const animateLayoutChanges: AnimateLayoutChanges = (args) => {
     : true;
 };
 
-const Sortable: FC<Sortable> = ({ sortableArgs, handle = true, ...props }) => {
+const Sortable: FC<Sortable> = ({
+  options: { handle = true, ...options },
+  ...props
+}) => {
   const { attributes, listeners, transform, transition, setNodeRef } =
     useSortable({
       animateLayoutChanges,
-      ...sortableArgs,
+      ...options,
     });
 
   const style = {

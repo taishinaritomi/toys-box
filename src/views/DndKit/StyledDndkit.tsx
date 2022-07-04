@@ -169,9 +169,9 @@ const StyledDndkit = () => {
               {fruits.map((fruit) => (
                 <Sortable
                   key={fruit.id}
-                  handle={false}
                   className={activeId === fruit.id ? 'opacity-25' : ''}
-                  sortableArgs={{
+                  options={{
+                    handle: false,
                     id: fruit.id,
                     attributes: {
                       tabIndex: -1,
@@ -195,7 +195,7 @@ const StyledDndkit = () => {
                         <IoChevronDown />
                       </button>
                       <SortableHandle
-                        sortableArgs={{
+                        options={{
                           id: fruit.id,
                           attributes: {
                             tabIndex: -1,
