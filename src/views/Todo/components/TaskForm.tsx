@@ -32,8 +32,8 @@ const TaskForm = () => {
       className=' mx-auto w-full max-w-lg'
     >
       <div
-        className={`relative flex items-center rounded-md border-2 border-slate-200 bg-slate-100 ${
-          focus ? 'border-purple-600' : ''
+        className={`relative flex items-end rounded-md border border-slate-200 bg-slate-100 transition-shadow ${
+          focus ? 'shadow-lg' : ''
         }`}
       >
         <TextareaAutoSize
@@ -52,11 +52,11 @@ const TaskForm = () => {
               buttonRef?.current?.click();
             }
           }}
-          className='w-full resize-none overflow-hidden rounded-md bg-slate-100 p-3 focus:outline-none'
+          className='m-3 w-full resize-none overflow-hidden rounded-md bg-slate-100 p-1 focus:outline-none'
         />
         <button
           ref={buttonRef}
-          className='mx-3 rounded-md border bg-purple-600 p-2 font-bold text-white transition-colors hover:bg-purple-700'
+          className='m-3 rounded-md bg-purple-600 p-2 font-bold text-white transition-colors hover:bg-purple-700'
         >
           <IoRocket />
         </button>
