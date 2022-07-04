@@ -10,6 +10,7 @@ import {
 } from 'react-icons/io5';
 import { type TaskType, useTasksMutators } from '../states/tasksState';
 import 'dayjs/locale/ja';
+import DndMonitor from '~/components/Dndkit/DndMonitor';
 dayjs.extend(relativeTime);
 dayjs.locale('ja');
 
@@ -17,11 +18,12 @@ const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
   const { removeTask, updateTask } = useTasksMutators();
   return (
     <Popover className='relative'>
-      {({ open }) => (
+      {({ open, close }) => (
         <>
           <Popover.Button className='rounded-md py-3 px-2'>
             <IoEllipsisVertical />
           </Popover.Button>
+          <DndMonitor onDragStart={() => close()} />
           <Transition
             show={open}
             as={Fragment}

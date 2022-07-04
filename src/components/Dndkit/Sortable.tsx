@@ -8,7 +8,7 @@ import type { ComponentProps, FC } from 'react';
 
 type Sortable = {
   handle?: boolean;
-  sortableArguments: UseSortableArguments;
+  sortableArgs: UseSortableArguments;
 } & ComponentProps<'div'>;
 
 const animateLayoutChanges: AnimateLayoutChanges = (args) => {
@@ -17,15 +17,11 @@ const animateLayoutChanges: AnimateLayoutChanges = (args) => {
     : true;
 };
 
-const Sortable: FC<Sortable> = ({
-  sortableArguments,
-  handle = true,
-  ...props
-}) => {
+const Sortable: FC<Sortable> = ({ sortableArgs, handle = true, ...props }) => {
   const { attributes, listeners, transform, transition, setNodeRef } =
     useSortable({
       animateLayoutChanges,
-      ...sortableArguments,
+      ...sortableArgs,
     });
 
   const style = {

@@ -12,8 +12,8 @@ const TaskContent: FC<{ task: TaskType }> = ({ task }) => {
 
   return (
     <div
-      className={`flex gap-4 rounded-md border-2 border-slate-200 bg-slate-100 p-4 ${
-        focus ? 'border-purple-600' : ''
+      className={`flex gap-4 rounded-md border border-slate-200 bg-slate-100 p-4 transition-shadow ${
+        focus ? 'shadow-lg' : ''
       }`}
     >
       <TextareaAutoSize
