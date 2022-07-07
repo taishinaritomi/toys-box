@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
 
-  client:
+  client: &client
     container_name: client
     restart: always
     env_file: ./.docker/.env
@@ -16,3 +16,10 @@ services:
       context: .
       dockerfile: ./.docker/dev.Dockerfile
     command: ["yarn","dev"]
+
+  storybook:
+    <<: *client
+    container_name: storybook
+    ports:
+      - "6006:6006"
+    command: ["yarn","storybook"]

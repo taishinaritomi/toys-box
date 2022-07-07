@@ -3,6 +3,7 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:storybook/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
