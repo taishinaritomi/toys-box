@@ -36,7 +36,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
       ref={ref}
       {...props}
       disabled={!enable || lording || disabled}
-      className={classNames(className['init'], className[variant],'bg')}
+      className={classNames(className['init'], className[variant])}
     >
       <div className='-translate-x-2 overflow-hidden'>
         <TransitionLordingIcon lording={lording} />
