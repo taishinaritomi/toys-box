@@ -1,7 +1,4 @@
-import type {
-  ComponentMeta,
-  ComponentStoryObj,
-} from '@storybook/react';
+import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
 import { Button } from './Button';
 
 type T = typeof Button;
