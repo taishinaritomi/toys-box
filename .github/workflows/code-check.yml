@@ -16,9 +16,5 @@ jobs:
           node-version: '16.x'
       - name: Install dependencies
         run : yarn install
-      - name: Type check
-        run : yarn check:type
-      - name: Lint check
-        run : yarn check:lint
-      - name: Format check
-        run : yarn check:format
+      - name: Code check
+        run : yarn check
