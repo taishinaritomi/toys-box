@@ -11,15 +11,20 @@ module.exports = {
     {
       name: "@storybook/addon-postcss",
       options: {
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: '[local]',
+          },
+        },
         postcssLoaderOptions: {
           implementation: require("postcss")
-        }
+        },
       }
     }
   ],
   framework: '@storybook/react',
   core: {
-    builder: 'webpack5',
+    builder: '@storybook/builder-webpack5',
   },
   webpackFinal: async (config) => {
     config.resolve.modules = [
