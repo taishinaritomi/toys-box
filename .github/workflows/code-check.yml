@@ -17,4 +17,4 @@ jobs:
       - name: Install dependencies
         run : yarn install
       - name: Code check
-        run : yarn check
+        run : yarn check:all
