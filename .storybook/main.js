@@ -11,9 +11,14 @@ module.exports = {
     {
       name: "@storybook/addon-postcss",
       options: {
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: '[local]',
+          },
+        },
         postcssLoaderOptions: {
           implementation: require("postcss")
-        }
+        },
       }
     }
   ],
