@@ -14,17 +14,17 @@ export default {
 export const Default: Story = {};
 
 export const WithIcon: Story = {
-  args: {icon: <IoFootsteps  className='w-5 h-5' />}
+  args: { icon: <IoFootsteps className='h-5 w-5' /> },
 };
 
 export const WithLording: Story = {
-  args: {lording: true}
+  args: { lording: true },
 };
 
 export const WithIconRight: Story = {
-  args: {iconRight: <IoFootsteps />}
+  args: { iconRight: <IoFootsteps /> },
 };
 
 export const WithIconOnly: Story = {
-  args: {icon: <IoFootsteps />,children: null}
+  args: { icon: <IoFootsteps />, children: null },
 };
