@@ -33,6 +33,6 @@ export const WithIconOnlyLording: Story = {
   args: { icon: <IoFootsteps />, children: null, lording: true },
 };
 
-export const WithCustumColor: Story = {
-  args: { variant: 'custumcolor', className: 'text-white bg-blue-500' },
+export const WithCustomcolor: Story = {
+  args: { variant: 'customcolor', className: 'text-white bg-blue-500' },
 };
