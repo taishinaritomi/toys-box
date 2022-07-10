@@ -19,8 +19,8 @@ import {
 } from '@dnd-kit/sortable';
 import { useMemo, useState } from 'react';
 import { IoCaretDown, IoCaretUp, IoEllipsisVertical } from 'react-icons/io5';
-import Sortable from '~/components/Dndkit/Sortable';
-import SortableHandle from '~/components/Dndkit/SortableHandle';
+import Sortable from '~/components/atoms/Dndkit/Sortable';
+import SortableHandle from '~/components/atoms/Dndkit/SortableHandle';
 
 type Fruits = {
   id: string;
