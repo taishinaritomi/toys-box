@@ -28,7 +28,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
     disabled,
     icon,
     iconRight,
-    className:_className,
+    className: _className,
     variant = 'primary',
     ...props
   },

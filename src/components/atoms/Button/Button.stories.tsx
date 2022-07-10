@@ -14,7 +14,7 @@ export default {
 export const Default: Story = {};
 
 export const WithIcon: Story = {
-  args: { icon: <IoFootsteps /> ,className: 'bg-red-500',variant:'primary' },
+  args: { icon: <IoFootsteps />, className: 'bg-red-500', variant: 'primary' },
 };
 
 export const WithLording: Story = {
