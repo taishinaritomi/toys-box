@@ -9,18 +9,15 @@ type Props = {
   lording?: boolean;
   icon?: ReactNode;
   iconRight?: ReactNode;
-  variant?: keyof Omit<typeof className['variant'], 'init'>;
+  variant?: keyof typeof className | 'custumcolor';
 } & ComponentPropsWithoutRef<'button'>;
 
 type ButtonRef = HTMLButtonElement;
 
 const className = {
-  init: 'flex items-center rounded-md font-bold transition disabled:opacity-50',
-  variant: {
-    primary: 'bg-purple-600 text-white enabled:hover:bg-purple-700',
-    danger: 'text-red-400 enabled:hover:text-red-500',
-    normal: 'text-slate-400 enabled:hover:text-slate-800',
-  },
+  primary: 'text-white bg-purple-600 enabled:hover:bg-purple-700',
+  danger: 'text-red-400 enabled:hover:text-red-500',
+  normal: 'text-slate-500 enabled:hover:text-slate-800',
 } as const;
 
 export const Button = forwardRef<ButtonRef, Props>(function _(
@@ -31,6 +28,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
     disabled,
     icon,
     iconRight,
+    className: _className,
     variant = 'primary',
     ...props
   },
@@ -42,10 +40,9 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
       {...props}
       disabled={!enable || lording || disabled}
       className={classNames(
-        className['init'],
-        className.variant[variant],
-        children ? ' py-2 px-6' : 'p-2',
-        'relative',
+        'flex items-center rounded-md font-bold transition disabled:opacity-50 relative',
+        variant === 'custumcolor' ? _className : className[variant],
+        children ? 'py-2 px-6' : 'p-2',
       )}
     >
       {children && (

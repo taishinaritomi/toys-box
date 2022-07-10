@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Button } from '~/components/atoms/Button';
 
 const Home = () => {
   return (
@@ -16,7 +15,6 @@ const Home = () => {
       >
         Repository
       </a>
-      <Button>gfearg</Button>
     </div>
   );
 };
