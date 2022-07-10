@@ -9,7 +9,7 @@ type Props = {
   lording?: boolean;
   icon?: ReactNode;
   iconRight?: ReactNode;
-  variant?: keyof typeof className | 'custumcolor';
+  variant?: keyof typeof className | 'customcolor';
 } & ComponentPropsWithoutRef<'button'>;
 
 type ButtonRef = HTMLButtonElement;
@@ -41,7 +41,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
       disabled={!enable || lording || disabled}
       className={classNames(
         'flex items-center rounded-md font-bold transition disabled:opacity-50 relative',
-        variant === 'custumcolor' ? _className : className[variant],
+        variant === 'customcolor' ? _className : className[variant],
         children ? 'py-2 px-6' : 'p-2',
       )}
     >
