@@ -14,7 +14,7 @@ export default {
 export const Default: Story = {};
 
 export const WithIcon: Story = {
-  args: { icon: <IoFootsteps className='h-5 w-5' /> },
+  args: { icon: <IoFootsteps /> ,className: 'bg-red-500',variant:'primary' },
 };
 
 export const WithLording: Story = {
@@ -27,4 +27,12 @@ export const WithIconRight: Story = {
 
 export const WithIconOnly: Story = {
   args: { icon: <IoFootsteps />, children: null },
+};
+
+export const WithIconOnlyLording: Story = {
+  args: { icon: <IoFootsteps />, children: null, lording: true },
+};
+
+export const WithCustumColor: Story = {
+  args: { variant: 'custumcolor', className: 'text-white bg-blue-500' },
 };
