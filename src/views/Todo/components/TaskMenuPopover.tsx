@@ -10,7 +10,7 @@ import {
 } from 'react-icons/io5';
 import { type TaskType, useTasksMutators } from '../states/tasksState';
 import 'dayjs/locale/ja';
-import DndMonitor from '~/components/Dndkit/DndMonitor';
+import DndMonitor from '~/components/atoms/Dndkit/DndMonitor';
 dayjs.extend(relativeTime);
 dayjs.locale('ja');
 
