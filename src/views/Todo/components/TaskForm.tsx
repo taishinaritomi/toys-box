@@ -8,6 +8,7 @@ import TextareaAutoSize from 'react-textarea-autosize';
 import type { TaskTextType } from '../states/tasksState';
 import { useTasksMutators } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
+import { Button } from '~/components/atoms/Button';
 
 const TaskForm = () => {
   const { addTask } = useTasksMutators();
@@ -54,12 +55,9 @@ const TaskForm = () => {
           }}
           className='m-3 w-full resize-none overflow-hidden rounded-md bg-slate-100 p-1 focus:outline-none'
         />
-        <button
-          ref={buttonRef}
-          className='m-3 rounded-md bg-purple-600 p-2 font-bold text-white transition-colors hover:bg-purple-700'
-        >
-          <IoRocket />
-        </button>
+        <div className='m-3'>
+          <Button icon={<IoRocket />} ref={buttonRef} />
+        </div>
       </div>
     </form>
   );

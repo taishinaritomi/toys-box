@@ -34,5 +34,5 @@ export const WithIconOnlyLording: Story = {
 };
 
 export const WithCustomcolor: Story = {
-  args: { variant: 'customcolor', className: 'text-white bg-blue-500' },
+  args: { variant: 'customColor', className: 'text-white bg-blue-500' },
 };
