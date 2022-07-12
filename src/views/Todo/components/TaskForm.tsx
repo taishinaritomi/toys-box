@@ -5,10 +5,10 @@ import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { IoRocket } from 'react-icons/io5';
 import TextareaAutoSize from 'react-textarea-autosize';
-import { Button } from '~/components/atoms/Button';
 import type { TaskTextType } from '../states/tasksState';
 import { useTasksMutators } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
+import { Button } from '~/components/atoms/Button';
 
 const TaskForm = () => {
   const { addTask } = useTasksMutators();
@@ -56,10 +56,7 @@ const TaskForm = () => {
           className='m-3 w-full resize-none overflow-hidden rounded-md bg-slate-100 p-1 focus:outline-none'
         />
         <div className='m-3'>
-          <Button
-            icon={<IoRocket />}
-            ref={buttonRef}
-          />
+          <Button icon={<IoRocket />} ref={buttonRef} />
         </div>
       </div>
     </form>
