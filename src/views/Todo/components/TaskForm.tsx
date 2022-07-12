@@ -5,6 +5,7 @@ import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { IoRocket } from 'react-icons/io5';
 import TextareaAutoSize from 'react-textarea-autosize';
+import { Button } from '~/components/atoms/Button';
 import type { TaskTextType } from '../states/tasksState';
 import { useTasksMutators } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
@@ -54,12 +55,12 @@ const TaskForm = () => {
           }}
           className='m-3 w-full resize-none overflow-hidden rounded-md bg-slate-100 p-1 focus:outline-none'
         />
-        <button
-          ref={buttonRef}
-          className='m-3 rounded-md bg-purple-600 p-2 font-bold text-white transition-colors hover:bg-purple-700'
-        >
-          <IoRocket />
-        </button>
+        <div className='m-3'>
+          <Button
+            icon={<IoRocket />}
+            ref={buttonRef}
+          />
+        </div>
       </div>
     </form>
   );
