@@ -9,7 +9,14 @@ type Props = {
   lording?: boolean;
   icon?: ReactNode;
   iconRight?: ReactNode;
-  variant?: keyof typeof className | 'customcolor';
+  variant?: keyof typeof className | 'customColor';
+  block?: boolean;
+  rounded?: 'base' | 'full';
+  padding?: 'base' | 'lg';
+  text?: {
+    size?: 'sm' | 'base';
+    align?: 'left' | 'center';
+  };
 } & ComponentPropsWithoutRef<'button'>;
 
 type ButtonRef = HTMLButtonElement;
@@ -29,6 +36,10 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
     icon,
     iconRight,
     className: _className,
+    text,
+    block = false,
+    rounded = 'base',
+    padding = 'base',
     variant = 'primary',
     ...props
   },
@@ -40,9 +51,19 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
       {...props}
       disabled={!enable || lording || disabled}
       className={classNames(
-        'flex items-center rounded-md font-bold transition disabled:opacity-50 relative',
-        variant === 'customcolor' ? _className : className[variant],
-        children ? 'py-2 px-6' : 'p-2',
+        'flex items-center font-bold transition disabled:opacity-50 relative',
+        block && 'w-full',
+        text?.size === 'sm' && 'text-sm',
+        text?.align === 'center' && 'justify-center',
+        rounded === 'full' ? 'rounded-full' : 'rounded-md',
+        variant === 'customColor' ? _className : className[variant],
+        children
+          ? padding === 'lg'
+            ? 'py-5 px-6'
+            : 'py-2 px-6'
+          : padding === 'lg'
+          ? 'p-3'
+          : 'p-2',
       )}
     >
       {children && (
@@ -64,7 +85,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
           <LordingIcon className='h-5 w-5' />
         </span>
       )}
-      <span className='flex items-center gap-2'>
+      <span className='flex items-center gap-2 whitespace-nowrap'>
         {icon && (
           <span className={lording && !children ? 'invisible' : ''}>
             {icon}
