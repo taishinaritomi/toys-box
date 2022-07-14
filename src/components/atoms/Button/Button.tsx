@@ -11,6 +11,7 @@ type Props = {
   iconRight?: ReactNode;
   variant?: keyof typeof className | 'customColor';
   block?: boolean;
+  shadow?: boolean;
   rounded?: 'base' | 'full';
   padding?: 'base' | 'lg';
   text?: {
@@ -38,6 +39,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
     className: _className,
     text,
     block = false,
+    shadow = false,
     rounded = 'base',
     padding = 'base',
     variant = 'primary',
@@ -53,13 +55,14 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
       className={classNames(
         'flex items-center font-bold transition disabled:opacity-50 relative',
         block && 'w-full',
+        shadow && 'shadow-md',
         text?.size === 'sm' && 'text-sm',
         text?.align === 'center' && 'justify-center',
         rounded === 'full' ? 'rounded-full' : 'rounded-md',
         variant === 'customColor' ? _className : className[variant],
         children
           ? padding === 'lg'
-            ? 'py-5 px-6'
+            ? 'py-4 px-6'
             : 'py-2 px-6'
           : padding === 'lg'
           ? 'p-3'
