@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil';
 import { z } from 'zod';
 import type { PartialSetStateAction } from '~/hooks/useObjectArrayMutators';
-import useObjectArrayMutators from '~/hooks/useObjectArrayMutators';
+import { useObjectArrayMutators } from '~/hooks/useObjectArrayMutators';
 import { localStorageEffect } from '~/libs/recoil';
 
 const taskTextRegex = /\S/g;

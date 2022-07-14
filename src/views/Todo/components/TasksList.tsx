@@ -14,8 +14,8 @@ import {
 } from '@dnd-kit/sortable';
 import { useState, useEffect, useMemo } from 'react';
 import { useTasksMutators, useTaskState } from '../states/tasksState';
-import TaskContent from './TaskContent';
-import Sortable from '~/components/atoms/Dndkit/Sortable';
+import { TaskContent } from './TaskContent';
+import { Sortable } from '~/components/atoms/Dndkit/Sortable';
 
 const pointerSensorOptions: SensorOptions = {
   activationConstraint: {
@@ -30,7 +30,7 @@ const measuringConfig: MeasuringConfiguration = {
   },
 };
 
-const TasksList = () => {
+export const TasksList = () => {
   const { moveTask } = useTasksMutators();
   const { tasks, findById } = useTaskState();
 
@@ -103,5 +103,3 @@ const TasksList = () => {
     </ul>
   );
 };
-
-export default TasksList;

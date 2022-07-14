@@ -1,4 +1,4 @@
-const arrayMove = <T>(array: T[], from: number, to: number): T[] => {
+export const arrayMove = <T>(array: T[], from: number, to: number): T[] => {
   const newArray = array.slice();
   newArray.splice(
     to < 0 ? newArray.length + to : to,
@@ -7,5 +7,3 @@ const arrayMove = <T>(array: T[], from: number, to: number): T[] => {
   );
   return newArray;
 };
-
-export { arrayMove };

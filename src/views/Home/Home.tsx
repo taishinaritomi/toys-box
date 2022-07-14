@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Home = () => {
+export const Home = () => {
   return (
     <div className='flex h-screen flex-col items-center justify-center gap-2'>
       <Link href={'/todo'}>
@@ -18,4 +18,3 @@ const Home = () => {
     </div>
   );
 };
-export default Home;
