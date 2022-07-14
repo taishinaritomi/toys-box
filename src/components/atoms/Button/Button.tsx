@@ -55,7 +55,7 @@ export const Button = forwardRef<ButtonRef, Props>(function _(
       className={classNames(
         'flex items-center font-bold transition disabled:opacity-50 relative',
         block && 'w-full',
-        shadow && 'shadow-md',
+        shadow && 'shadow-lg',
         text?.size === 'sm' && 'text-sm',
         text?.align === 'center' && 'justify-center',
         rounded === 'full' ? 'rounded-full' : 'rounded-md',
