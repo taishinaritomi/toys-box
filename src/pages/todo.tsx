@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import Todo from '~/views/Todo/Todo';
+import { Todo } from '~/views/Todo/Todo';
 
 const todo = () => {
   return (

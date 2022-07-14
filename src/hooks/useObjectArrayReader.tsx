@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-const useObjectArrayReader = <
+export const useObjectArrayReader = <
   T extends Record<string | number | symbol, unknown>,
   K extends keyof T = 'id',
 >(
@@ -25,5 +25,3 @@ const useObjectArrayReader = <
 
   return { findByKey, findIndex };
 };
-
-export default useObjectArrayReader;

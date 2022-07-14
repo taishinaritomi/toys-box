@@ -10,7 +10,7 @@ import { useTasksMutators } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
 import { Button } from '~/components/atoms/Button';
 
-const TaskForm = () => {
+export const TaskForm = () => {
   const { addTask } = useTasksMutators();
   const [composing, setComposition] = useState(false);
   const [focus, setFocus] = useState(false);
@@ -62,5 +62,3 @@ const TaskForm = () => {
     </form>
   );
 };
-
-export default TaskForm;

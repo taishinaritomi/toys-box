@@ -2,13 +2,11 @@ import type { UseDraggableArguments } from '@dnd-kit/core';
 import { useDraggable } from '@dnd-kit/core';
 import type { ComponentProps, FC } from 'react';
 
-type DraggableProps = {
+type Props = {
   options: UseDraggableArguments;
 } & ComponentProps<'div'>;
 
-const Draggable: FC<DraggableProps> = ({ options, ...props }) => {
+export const Draggable: FC<Props> = ({ options, ...props }) => {
   const { attributes, listeners, setNodeRef } = useDraggable(options);
   return <div ref={setNodeRef} {...listeners} {...attributes} {...props} />;
 };
-
-export default Draggable;

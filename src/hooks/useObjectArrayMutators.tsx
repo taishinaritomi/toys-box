@@ -6,7 +6,7 @@ export type PartialSetStateAction<S> =
   | Partial<S>
   | ((prevState: S) => Partial<S>);
 
-const useObjectArrayMutators = <
+export const useObjectArrayMutators = <
   T extends Record<string, unknown>,
   K extends keyof T = 'id',
 >(
@@ -71,5 +71,3 @@ const useObjectArrayMutators = <
 
   return { add, update, remove, move, nextMove, prevMove };
 };
-
-export default useObjectArrayMutators;

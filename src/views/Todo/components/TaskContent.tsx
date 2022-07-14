@@ -4,9 +4,9 @@ import TextareaAutoSize from 'react-textarea-autosize';
 import type { TaskType } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
 import { useTasksMutators } from '../states/tasksState';
-import TaskMenu from './TaskMenuPopover';
+import { TaskMenu } from './TaskMenuPopover';
 
-const TaskContent: FC<{ task: TaskType }> = ({ task }) => {
+export const TaskContent: FC<{ task: TaskType }> = ({ task }) => {
   const { updateTask, removeTask } = useTasksMutators();
   const [focus, setFocus] = useState(false);
 
@@ -39,4 +39,3 @@ const TaskContent: FC<{ task: TaskType }> = ({ task }) => {
     </div>
   );
 };
-export default TaskContent;

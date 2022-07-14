@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import StyledDndkit from '~/views/DndKit/StyledDndkit';
+import { StyledDndkit } from '~/views/DndKit/StyledDndkit';
 
 const dndkit = () => {
   return (

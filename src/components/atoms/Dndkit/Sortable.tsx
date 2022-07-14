@@ -6,7 +6,7 @@ import { useSortable, defaultAnimateLayoutChanges } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { ComponentProps, FC } from 'react';
 
-type Sortable = {
+type Props = {
   options: UseSortableArguments & { handle?: boolean };
 } & ComponentProps<'div'>;
 
@@ -16,7 +16,7 @@ const animateLayoutChanges: AnimateLayoutChanges = (args) => {
     : true;
 };
 
-const Sortable: FC<Sortable> = ({
+export const Sortable: FC<Props> = ({
   options: { handle = true, ...options },
   ...props
 }) => {
@@ -41,5 +41,3 @@ const Sortable: FC<Sortable> = ({
     />
   );
 };
-
-export default Sortable;

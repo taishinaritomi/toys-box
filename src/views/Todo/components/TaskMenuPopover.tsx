@@ -10,11 +10,11 @@ import {
 } from 'react-icons/io5';
 import { type TaskType, useTasksMutators } from '../states/tasksState';
 import 'dayjs/locale/ja';
-import DndMonitor from '~/components/atoms/Dndkit/DndMonitor';
+import { DndMonitor } from '~/components/atoms/Dndkit/DndMonitor';
 dayjs.extend(relativeTime);
 dayjs.locale('ja');
 
-const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
+export const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
   const { removeTask, updateTask } = useTasksMutators();
   return (
     <Popover className='relative'>
@@ -73,5 +73,3 @@ const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
     </Popover>
   );
 };
-
-export default TaskMenu;
