@@ -6,12 +6,10 @@ services:
     container_name: client
     restart: always
     env_file: ./.docker/.env
+    environment:
+      - NODE_ENV=production
     ports:
       - "8080:8080"
-    volumes:
-      - /workspace/node_modules
-      - /workspace/.next
-      - ./:/workspace
     build:
       context: .
       dockerfile: ./.docker/Dockerfile
