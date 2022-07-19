@@ -23,7 +23,7 @@
     "@hookform/resolvers": "2.9.6",
     "base64-emoji-parser": "^0.1.4",
     "crypto-js": "^4.1.1",
-    "dayjs": "1.11.3",
+    "dayjs": "1.11.4",
     "nanoid": "4.0.0",
     "next": "12.2.2",
     "react": "18.2.0",
