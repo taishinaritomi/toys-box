@@ -15,7 +15,7 @@ import {
 import { useState, useEffect, useMemo } from 'react';
 import { useTasksMutators, useTaskState } from '../states/tasksState';
 import { TaskContent } from './TaskContent';
-import { Sortable } from '~/components/atoms/Dndkit/Sortable';
+import { Sortable } from '@/components/atoms/Dndkit/Sortable';
 
 const pointerSensorOptions: SensorOptions = {
   activationConstraint: {

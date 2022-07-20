@@ -1,8 +1,8 @@
 import { Transition } from '@headlessui/react';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
-import { LordingIcon } from '~/components/atoms/LordingIcon';
-import { classNames } from '~/libs/classNames';
+import { LordingIcon } from '@/components/atoms/LordingIcon';
+import { classNames } from '@/libs/classNames';
 
 type Props = {
   enable?: boolean;

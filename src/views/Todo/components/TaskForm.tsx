@@ -8,7 +8,7 @@ import TextareaAutoSize from 'react-textarea-autosize';
 import type { TaskTextType } from '../states/tasksState';
 import { useTasksMutators } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
-import { Button } from '~/components/atoms/Button';
+import { Button } from '@/components/atoms/Button';
 
 export const TaskForm = () => {
   const { addTask } = useTasksMutators();

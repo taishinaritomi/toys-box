@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import { PasswordGenerator } from '~/views/PasswordGenerator/PasswordGenerator';
+import { PasswordGenerator } from '@/views/PasswordGenerator/PasswordGenerator';
 
 const passwordGenerator = () => {
   return (

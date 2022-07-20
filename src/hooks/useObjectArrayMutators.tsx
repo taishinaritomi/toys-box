@@ -1,5 +1,5 @@
 import type { Dispatch } from 'react';
-import { arrayMove } from '~/libs/array';
+import { arrayMove } from '@/libs/array';
 
 type Setter<T> = Dispatch<(prevState: T) => T>;
 export type PartialSetStateAction<S> =
