@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Dndkit } from '~/views/DndKit/DndKit';
+import { Dndkit } from '@/views/DndKit/DndKit';
 
 const codeUrl =
   'https://github.com/taishinaritomi/toys-box/blob/main/src/views/DndKit/DndKit.tsx';

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import { ClickSpeedChecker } from '~/views/ClickSpeedChecker/ClickSpeedChecker';
+import { ClickSpeedChecker } from '@/views/ClickSpeedChecker/ClickSpeedChecker';
 
 const clickSpeedChecker = () => {
   return (

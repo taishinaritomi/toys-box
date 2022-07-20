@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { useState } from 'react';
 import { CgArrowsExchange } from 'react-icons/cg';
 import TextareaAutoSize from 'react-textarea-autosize';
-import { encrypt } from '~/libs/crypto';
+import { encrypt } from '@/libs/crypto';
 
 export const EmojiCrypto: FC = () => {
   const [value, setValue] = useState('');

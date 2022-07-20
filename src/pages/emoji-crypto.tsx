@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import { EmojiCrypto } from '~/views/EmojiCrypto/EmojiCrypto';
+import { EmojiCrypto } from '@/views/EmojiCrypto/EmojiCrypto';
 
 const emojiCrypto = () => {
   return (
