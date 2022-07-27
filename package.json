@@ -20,7 +20,7 @@
     "@dnd-kit/sortable": "7.0.1",
     "@dnd-kit/utilities": "3.2.0",
     "@headlessui/react": "1.6.6",
-    "@hookform/resolvers": "2.9.6",
+    "@hookform/resolvers": "2.9.7",
     "base64-emoji-parser": "^0.1.4",
     "crypto-js": "^4.1.1",
     "dayjs": "1.11.4",
