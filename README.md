@@ -1,6 +1,5 @@
 # [**Toys Box**](https://toys-box.vercel.app)
 
-
 StoryBook: [https://toys-box-storybook.vercel.app](https://toys-box-storybook.vercel.app)
 
 ## Stack
