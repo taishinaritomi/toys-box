@@ -1,18 +1,21 @@
 {
-  "name": "todo-app",
+  "name": "toys-box",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p $PORT",
+    "dev": "next dev",
+    "dev:start": "next start",
+    "dev:storybook": "start-storybook -p 6006",
     "build": "next build",
     "start": "next start -p $PORT",
     "test": "jest",
     "check:type": "tsc --noEmit",
-    "check:lint": "eslint src",
-    "check:format": "prettier src --check",
-    "fix:format": "prettier --write src",
-    "fix:lint": "eslint --fix src",
-    "storybook": "start-storybook -p $STORY_BOOK_PORT",
+    "check:lint": "eslint . --ignore-path .gitignore",
+    "check:format": "prettier . --check --ignore-path .gitignore",
+    "check:all": "yarn check:type && yarn check:lint && yarn check:format",
+    "fix:format": "prettier --write . --ignore-path .gitignore",
+    "fix:lint": "eslint --fix . --ignore-path .gitignore",
+    "fix:all": "yarn fix:format && yarn fix:lint",
     "build-storybook": "build-storybook"
   },
   "dependencies": {

@@ -3,11 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -17,19 +13,10 @@
     "incremental": true,
     "allowJs": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"]
   },
-  "include": [
-    "next-env.d.ts",
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "src/**/*"],
+  "exclude": ["node_modules"]
 }

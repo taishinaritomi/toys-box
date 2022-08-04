@@ -17,21 +17,7 @@
   },
   "overrides": [
     {
-      "files": ["*/pages/**"],
-      "rules": {
-        "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
-      }
-    },
-    {
-      "files": ["*/**/*.stories.*"],
-      "rules": {
-        "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
-      }
-    },
-    {
-      "files": ["*/**/*.config.*"],
+      "files": ["./src/pages/**", "./next.config.*.*", "*/**/*.stories.*"],
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error"
