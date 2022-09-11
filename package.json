@@ -35,7 +35,7 @@
     "react-icons": "4.4.0",
     "react-textarea-autosize": "8.3.4",
     "recoil": "0.7.5",
-    "zod": "3.19.0"
+    "zod": "3.19.1"
   },
   "devDependencies": {
     "@babel/core": "7.19.0",
