@@ -17,7 +17,7 @@
   },
   "overrides": [
     {
-      "files": ["./src/pages/**", "./next.config.*.*", "*/**/*.stories.*"],
+      "files": ["./src/pages/**", "./next.config.*", "*/**/*.stories.*"],
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error"
