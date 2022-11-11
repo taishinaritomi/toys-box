@@ -20,18 +20,19 @@ export const EmojiCrypto: FC = () => {
             !value ? 'items-stretch' : 'items-start'
           }`}
         >
-          <Link href={isEncrypt ? '/decrypt' : '/'}>
-            <a className='absolute left-1/2 mt-2 -translate-x-1/2 rounded-md border border-slate-200 bg-white p-2 shadow-lg'>
-              <CgArrowsExchange
-                className={`h-6 w-6 ${
-                  isEncrypt === true
-                    ? '-scale-x-100'
-                    : isEncrypt === false
-                    ? 'scale-x-100'
-                    : ''
-                }`}
-              />
-            </a>
+          <Link
+            className='absolute left-1/2 mt-2 -translate-x-1/2 rounded-md border border-slate-200 bg-white p-2 shadow-lg'
+            href={isEncrypt ? '/decrypt' : '/'}
+          >
+            <CgArrowsExchange
+              className={`h-6 w-6 ${
+                isEncrypt === true
+                  ? '-scale-x-100'
+                  : isEncrypt === false
+                  ? 'scale-x-100'
+                  : ''
+              }`}
+            />
           </Link>
           <TextareaAutoSize
             placeholder={

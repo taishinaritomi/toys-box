@@ -2,7 +2,8 @@ import type {
   DragEndEvent,
   DragStartEvent,
   MeasuringConfiguration,
-  SensorOptions,
+  MouseSensorOptions,
+  PointerSensorOptions,
 } from '@dnd-kit/core';
 import { MeasuringStrategy } from '@dnd-kit/core';
 import { DragOverlay } from '@dnd-kit/core';
@@ -17,7 +18,7 @@ import { useTasksMutators, useTaskState } from '../states/tasksState';
 import { TaskContent } from './TaskContent';
 import { Sortable } from '@/components/atoms/Dndkit/Sortable';
 
-const pointerSensorOptions: SensorOptions = {
+const pointerSensorOptions: PointerSensorOptions & MouseSensorOptions = {
   activationConstraint: {
     delay: 250,
     tolerance: 5,
@@ -61,7 +62,7 @@ export const TasksList = () => {
   };
 
   return (
-    <ul className='flex flex-col gap-4'>
+    <div className='mb-8 flex flex-col gap-4'>
       {!lording && (
         <DndContext
           sensors={sensors}
@@ -72,8 +73,12 @@ export const TasksList = () => {
         >
           <DragOverlay>
             {activeTask && (
-              <div className='cursor-grabbing shadow-xl'>
-                <TaskContent task={activeTask} />
+              <div className='cursor-grabbing'>
+                <TaskContent
+                  task={activeTask}
+                  dragId={activeTask.id}
+                  overlay={true}
+                />
               </div>
             )}
           </DragOverlay>
@@ -92,14 +97,14 @@ export const TasksList = () => {
                   },
                 }}
               >
-                <li key={task.id}>
-                  <TaskContent task={task} />
-                </li>
+                <div key={task.id}>
+                  <TaskContent task={task} dragId={activeId} overlay={false} />
+                </div>
               </Sortable>
             ))}
           </SortableContext>
         </DndContext>
       )}
-    </ul>
+    </div>
   );
 };
