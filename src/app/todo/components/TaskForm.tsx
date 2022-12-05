@@ -1,3 +1,5 @@
+'use client';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -8,7 +10,6 @@ import TextareaAutoSize from 'react-textarea-autosize';
 import type { TaskTextType } from '../states/tasksState';
 import { useTasksMutators } from '../states/tasksState';
 import { TaskTextSchema } from '../states/tasksState';
-import { Button } from '@/components/atoms/Button';
 
 export const TaskForm = () => {
   const { addTask } = useTasksMutators();
@@ -33,7 +34,7 @@ export const TaskForm = () => {
       className=' mx-auto w-full max-w-lg'
     >
       <div
-        className={`relative flex items-end rounded-md border border-slate-200 bg-slate-100 transition-shadow ${
+        className={`relative flex items-end rounded-xl border border-slate-200 bg-slate-100 transition-shadow ${
           focus ? 'shadow-lg' : ''
         }`}
       >
@@ -53,10 +54,15 @@ export const TaskForm = () => {
               buttonRef?.current?.click();
             }
           }}
-          className='m-3 w-full resize-none overflow-hidden rounded-md bg-slate-100 p-1 focus:outline-none'
+          className='m-3 h-8 w-full resize-none overflow-hidden rounded-xl bg-slate-100 p-1 focus:outline-none'
         />
         <div className='m-3'>
-          <Button icon={<IoRocket />} ref={buttonRef} />
+          <button
+            className='rounded-xl bg-purple-600 p-2 text-white'
+            ref={buttonRef}
+          >
+            <IoRocket />
+          </button>
         </div>
       </div>
     </form>

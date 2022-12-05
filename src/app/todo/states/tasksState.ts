@@ -1,10 +1,10 @@
+import { useAtom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 import { nanoid } from 'nanoid';
 import { useCallback } from 'react';
-import { atom, useRecoilValue, useSetRecoilState } from 'recoil';
 import { z } from 'zod';
-import type { PartialSetStateAction } from '@/hooks/useObjectArrayMutators';
-import { useObjectArrayMutators } from '@/hooks/useObjectArrayMutators';
-import { localStorageEffect } from '@/libs/recoil';
+import type { PartialSetStateAction } from '@/hooks/useObjectArray';
+import { useObjectArray } from '@/hooks/useObjectArray';
 
 const taskTextRegex = /\S/g;
 
@@ -12,8 +12,8 @@ const TaskSchema = z.object({
   id: z.string(),
   text: z.string().min(1).regex(taskTextRegex),
   checked: z.boolean(),
-  createAt: z.date(),
-  updateAt: z.date(),
+  createAt: z.string(),
+  updateAt: z.string(),
 });
 export type TaskType = z.infer<typeof TaskSchema>;
 
@@ -23,27 +23,10 @@ export type TasksType = z.infer<typeof TasksSchema>;
 export const TaskTextSchema = TaskSchema.pick({ text: true });
 export type TaskTextType = z.infer<typeof TaskTextSchema>;
 
-export const tasksState = atom<TasksType>({
-  key: 'tasksState',
-  default: [],
-  effects: [
-    localStorageEffect('tasks', (tasks) => {
-      const changeType = tasks.map((task) => ({
-        ...task,
-        createAt: new Date(task.createAt),
-        updateAt: new Date(task.updateAt),
-      }));
-      try {
-        return TasksSchema.parse(changeType);
-      } catch (error) {
-        return [];
-      }
-    }),
-  ],
-});
+const tasksState = atomWithStorage<TasksType>('tasks', []);
 
 export const useTaskState = () => {
-  const tasks = useRecoilValue(tasksState);
+  const [tasks] = useAtom(tasksState);
 
   const findById = useCallback(
     (id: string) => {
@@ -57,21 +40,21 @@ export const useTaskState = () => {
 };
 
 export const useTasksMutators = () => {
-  const setTasks = useSetRecoilState(tasksState);
+  const [, setTasks] = useAtom(tasksState);
 
   const {
     add,
     update,
     remove: removeTask,
     move: moveTask,
-  } = useObjectArrayMutators(setTasks);
+  } = useObjectArray(setTasks);
 
   const addTask = (addTask: Pick<TaskType, 'text'>) => {
     const now = new Date();
     add({
       id: nanoid(),
-      createAt: now,
-      updateAt: now,
+      createAt: now.toString(),
+      updateAt: now.toString(),
       checked: false,
       ...addTask,
     });
@@ -81,7 +64,7 @@ export const useTasksMutators = () => {
     id: string,
     updateTask: PartialSetStateAction<TaskType>,
   ) => {
-    update(id, updateTask);
+    update(id, Object.assign({ updateAt: new Date().toString() }, updateTask));
   };
 
   const removeAllTask = () => setTasks([]);

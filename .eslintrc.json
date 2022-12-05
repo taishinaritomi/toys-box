@@ -17,7 +17,11 @@
   },
   "overrides": [
     {
-      "files": ["./src/pages/**", "./next.config.*", "*/**/*.stories.*"],
+      "files": [
+        "./src/pages/**",
+        "./src/app/**/{page,layout,loading,error,template,head}.tsx",
+        "./next.config.*"
+      ],
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error"

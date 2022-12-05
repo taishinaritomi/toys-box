@@ -1,12 +1,21 @@
 import type { Dispatch } from 'react';
-import { arrayMove } from '@/libs/array';
 
 type Setter<T> = Dispatch<(prevState: T) => T>;
 export type PartialSetStateAction<S> =
   | Partial<S>
   | ((prevState: S) => Partial<S>);
 
-export const useObjectArrayMutators = <
+const arrayMove = <T,>(array: T[], from: number, to: number): T[] => {
+  const newArray = array.slice();
+  newArray.splice(
+    to < 0 ? newArray.length + to : to,
+    0,
+    ...newArray.splice(from, 1),
+  );
+  return newArray;
+};
+
+export const useObjectArray = <
   T extends Record<string, unknown>,
   K extends keyof T = 'id',
 >(
