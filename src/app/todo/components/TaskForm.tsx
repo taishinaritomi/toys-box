@@ -58,7 +58,7 @@ export const TaskForm = () => {
         />
         <div className='m-3'>
           <button
-            className='rounded-xl bg-purple-600 p-2 text-white'
+            className='rounded-lg bg-purple-600 p-2 text-white'
             ref={buttonRef}
           >
             <IoRocket />
