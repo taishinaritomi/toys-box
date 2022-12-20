@@ -3,7 +3,7 @@ import Link from 'next/link';
 const url =
   'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/';
 
-export const images = {
+const images = {
   bucket: `${url}Bucket/3D/bucket_3d.png`,
 };
 
