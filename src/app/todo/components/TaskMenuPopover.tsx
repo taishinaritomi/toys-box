@@ -40,6 +40,7 @@ export const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
                 <button
                   onClick={() =>
                     updateTask(task.id, ({ checked }) => ({
+                      updateAt: new Date().toString(),
                       checked: !checked,
                     }))
                   }

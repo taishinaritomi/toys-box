@@ -17,7 +17,7 @@ export const TaskContent: FC<Props> = ({ task, dragId, overlay }) => {
   return (
     <div
       className={`flex gap-4 rounded-xl border border-slate-200 bg-slate-100 p-4 transition-shadow focus:shadow-lg ${
-        task.checked ? 'bg-green-100' : ''
+        task.checked ? 'border-green-200 bg-green-100' : ''
       } ${dragId === task.id && overlay ? 'shadow-xl' : ''}`}
     >
       <TextareaAutoSize
@@ -26,6 +26,7 @@ export const TaskContent: FC<Props> = ({ task, dragId, overlay }) => {
         }`}
         onChange={(e) =>
           updateTask(task.id, {
+            updateAt: new Date().toString(),
             text: e.target.value,
           })
         }

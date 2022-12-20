@@ -64,7 +64,7 @@ export const useTasksMutators = () => {
     id: string,
     updateTask: PartialSetStateAction<TaskType>,
   ) => {
-    update(id, Object.assign({ updateAt: new Date().toString() }, updateTask));
+    update(id, updateTask);
   };
 
   const removeAllTask = () => setTasks([]);

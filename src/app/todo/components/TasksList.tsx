@@ -99,9 +99,7 @@ export const TasksList = () => {
                   },
                 }}
               >
-                <div key={task.id}>
-                  <TaskContent task={task} dragId={activeId} overlay={false} />
-                </div>
+                <TaskContent task={task} dragId={activeId} overlay={false} />
               </Sortable>
             ))}
           </SortableContext>
