@@ -35,7 +35,7 @@ export const TaskForm = () => {
     >
       <div
         className={`relative flex items-end rounded-xl border border-slate-200 bg-slate-100 transition-shadow ${
-          focus ? 'shadow-lg' : ''
+          focus ? 'shadow-sm' : ''
         }`}
       >
         <TextareaAutoSize

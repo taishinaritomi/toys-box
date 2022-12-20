@@ -10,19 +10,19 @@ const images = {
 const LINKS = [
   {
     href: '/todo',
-    title: 'Todo',
+    title: 'Todo App',
     icon: images.bucket,
   },
 ];
 
 export const HomeView = () => {
   return (
-    <div className='mx-auto flex h-screen max-w-sm flex-col items-center justify-center gap-2'>
-      <div className='grid w-full gap-8'>
+    <div className='mx-auto flex h-screen max-w-xl flex-col items-center justify-center p-2'>
+      <div className='grid w-full gap-8 rounded-xl border border-slate-200 bg-white p-16  s:p-10'>
         {LINKS.map(({ href, title, icon }) => (
           <Link
             key={href}
-            className='rounded-3xl border border-slate-200 bg-slate-100 shadow-xl transition-colors hover:bg-slate-200'
+            className='rounded-xl border border-slate-200 bg-slate-100 shadow-sm transition-colors hover:bg-slate-200'
             href={href}
           >
             <div className='flex w-full items-center justify-between p-3'>
@@ -33,13 +33,15 @@ export const HomeView = () => {
             </div>
           </Link>
         ))}
+        <div className='mt-4 flex justify-center'>
+          <a
+            className='underline hover:text-sky-600'
+            href='https://github.com/taishinaritomi/toys-box'
+          >
+            Repository
+          </a>
+        </div>
       </div>
-      <a
-        className='mt-8 underline hover:drop-shadow'
-        href='https://github.com/taishinaritomi/toys-box'
-      >
-        Repository
-      </a>
     </div>
   );
 };
