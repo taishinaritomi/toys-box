@@ -19,6 +19,7 @@
     {
       "files": [
         "./src/app/**/{page,layout,loading,error,template,head}.tsx",
+        "./app/**/{page,layout,loading,error,template,head}.tsx",
         "./next.config.*"
       ],
       "rules": {
