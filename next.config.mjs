@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   swcMinify: true,
   // i18n: { locales: ['ja'], defaultLocale: 'ja' },
   reactStrictMode: true,
-  // poweredByHeader: false,
+  poweredByHeader: false,
   experimental: {
     appDir: true,
   },
