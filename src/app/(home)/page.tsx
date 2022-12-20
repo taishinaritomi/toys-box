@@ -1,5 +1,4 @@
-// import { HomeView } from './view';
+import { HomeView } from './view';
 
-// const home = () => <HomeView />;
-const Home = () => <>{'home'}</>;
+const Home = () => <HomeView />;
 export default Home;
