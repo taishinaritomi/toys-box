@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 
-const head: FC = () => {
+const Head: FC = () => {
   return (
     <>
       <title>Home / ToysBox</title>
     </>
   );
 };
-export default head;
+export default Head;
