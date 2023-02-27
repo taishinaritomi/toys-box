@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: '16.x'
       - name: install dependencies
-        run: yarn install
+        run: npm i
       - name: build
-        run: yarn build
+        run: npm run build
       - name: check
-        run: yarn code:check
+        run: npm run code:check
