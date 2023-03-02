@@ -1,4 +1,4 @@
-name: Code check
+name: code check
 on:
   pull_request:
     branches:
@@ -10,13 +10,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: setup Node
+      - name: setup node
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+          cache: 'npm'
       - name: install dependencies
         run: npm i
       - name: build
         run: npm run build
-      - name: check
+      - name: code check
         run: npm run code:check
