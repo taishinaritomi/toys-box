@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { classes } from './view.style';
 
 const url =
   'https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/';
@@ -33,9 +34,9 @@ export const HomeView = () => {
             </div>
           </Link>
         ))}
-        <div className='mt-4 flex justify-center'>
+        <div className={classes.container}>
           <a
-            className='underline hover:text-sky-600'
+            className={classes.base}
             href='https://github.com/taishinaritomi/toys-box'
           >
             Repository

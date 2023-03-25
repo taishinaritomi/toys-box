@@ -1,3 +1,5 @@
+import { withKazeStyle } from '@kaze-style/next-plugin'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
@@ -9,4 +11,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withKazeStyle(nextConfig);
