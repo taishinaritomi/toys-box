@@ -1,4 +1,4 @@
-import { withKazeStyle } from '@kaze-style/next-plugin'
+import { withKazeStyle } from '@kaze-style/next-plugin';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

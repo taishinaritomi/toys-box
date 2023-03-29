@@ -19,7 +19,7 @@ const LINKS = [
 export const HomeView = () => {
   return (
     <div className='mx-auto flex h-screen max-w-xl flex-col items-center justify-center p-2'>
-      <div className='grid w-full gap-8 rounded-xl border border-slate-200 bg-white p-16  s:p-10'>
+      <div className='s:p-10 grid w-full gap-8 rounded-xl border border-slate-200 bg-white  p-16'>
         {LINKS.map(({ href, title, icon }) => (
           <Link
             key={href}
@@ -27,7 +27,7 @@ export const HomeView = () => {
             href={href}
           >
             <div className='flex w-full items-center justify-between p-3'>
-              <div className='ml-4 s:ml-2'>
+              <div className='s:ml-2 ml-4'>
                 <h1 className='text-lg font-bold'>{title}</h1>
               </div>
               <img src={icon} alt='' className='h-20 w-20' />

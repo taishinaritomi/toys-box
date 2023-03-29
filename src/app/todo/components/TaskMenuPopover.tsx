@@ -19,7 +19,7 @@ export const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
     <Popover className='relative'>
       {({ open }) => (
         <>
-          <Popover.Button className='rounded-xl py-3 px-2'>
+          <Popover.Button className='rounded-xl px-2 py-3'>
             <IoEllipsisVertical />
           </Popover.Button>
           <Transition
@@ -34,9 +34,9 @@ export const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
           >
             <Popover.Panel
               static
-              className='absolute top-0 right-full -translate-x-3'
+              className='absolute right-full top-0 -translate-x-3'
             >
-              <div className='w-52 rounded-xl border border-slate-200 bg-slate-100 p-2 shadow-md s:w-48'>
+              <div className='s:w-48 w-52 rounded-xl border border-slate-200 bg-slate-100 p-2 shadow-md'>
                 <button
                   onClick={() =>
                     updateTask(task.id, ({ checked }) => ({
@@ -44,7 +44,7 @@ export const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
                       checked: !checked,
                     }))
                   }
-                  className={`flex w-full items-center gap-2 rounded-xl py-2  px-3 transition-colors ${
+                  className={`flex w-full items-center gap-2 rounded-xl px-3  py-2 transition-colors ${
                     task.checked
                       ? 'bg-green-100 font-bold text-green-400 hover:text-green-500'
                       : 'text-slate-600'
@@ -55,12 +55,12 @@ export const TaskMenu: FC<{ task: TaskType }> = ({ task }) => {
                 </button>
                 <button
                   onClick={() => removeTask(task.id)}
-                  className='flex w-full items-center gap-2 rounded-xl py-2 px-3 font-bold text-red-400 transition-colors hover:bg-red-100 hover:text-red-500'
+                  className='flex w-full items-center gap-2 rounded-xl px-3 py-2 font-bold text-red-400 transition-colors hover:bg-red-100 hover:text-red-500'
                 >
                   <IoTrash />
                   <p>削除</p>
                 </button>
-                <div className='flex w-full items-center gap-2 py-2 px-3 text-slate-600'>
+                <div className='flex w-full items-center gap-2 px-3 py-2 text-slate-600'>
                   <IoRefresh />
                   <p>{dayjs(task.updateAt).fromNow()}に更新</p>
                 </div>

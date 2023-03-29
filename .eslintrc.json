@@ -19,7 +19,8 @@
     {
       "files": [
         "./src/app/**/{page,layout,loading,error,template,head}.tsx",
-        "./next.config.*"
+        "./next.config.*",
+        "./tailwind.config.*"
       ],
       "rules": {
         "import/no-default-export": "off",

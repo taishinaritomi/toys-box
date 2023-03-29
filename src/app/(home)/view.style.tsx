@@ -1,15 +1,15 @@
-import { style } from '@kaze-style/core'
+import { style } from '@kaze-style/core';
 
 export const classes = style({
   container: {
     margin: '1rem',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   base: {
     textDecorationLine: 'underline',
-    ":hover": {
-      color: 'blue'
-    }
-  }
-})
+    ':hover': {
+      color: 'blue',
+    },
+  },
+});

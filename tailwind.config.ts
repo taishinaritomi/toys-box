@@ -1,7 +1,6 @@
-/**
- * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
- */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+export default {
   content: ['./src/**/*.tsx'],
   darkMode: 'class',
   theme: {
@@ -21,4 +20,4 @@ module.exports = {
       l: { max: '1024px' },
     },
   },
-};
+} satisfies Config;
