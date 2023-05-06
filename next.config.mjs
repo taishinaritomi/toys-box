@@ -8,7 +8,7 @@ const nextConfig = {
   poweredByHeader: false,
   experimental: {
     appDir: true,
-    serverActions: true
+    serverActions: true,
   },
 };
 
